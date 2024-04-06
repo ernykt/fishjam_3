@@ -29,13 +29,13 @@ scale = Vector2(0.3, 0.28)
 script = ExtResource("2_y26cx")
 
 [node name="Timer" type="Timer" parent="FishSpawner"]
-wait_time = 5.0
+wait_time = 2.0
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("4_re186")
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
-wait_time = 10.0
+wait_time = 2.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]

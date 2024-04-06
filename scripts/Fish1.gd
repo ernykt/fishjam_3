@@ -15,6 +15,7 @@ var can_advance_line = false
 var random_text = randi_range(0, 3)
 
 func _physics_process(delta):
+	$FishSprite.play("default")
 	velocity = Vector2(1, 0) * SPEED
 	move_and_collide(velocity * delta)
 	if not is_dialog_active:
@@ -33,9 +34,6 @@ func _show_text_box():
 	add_child(text_box)
 	text_box.global_position = global_position
 	text_box.display_text(dialog_options[random_text])
-	
-
-
 
 func _on_progress_timer_timeout():
 	progress_bar.value -= 10
