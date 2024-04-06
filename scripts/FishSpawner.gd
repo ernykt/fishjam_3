@@ -4,7 +4,8 @@ extends Node2D
 
 func _ready():
 	$Timer.start(randf_range(5,7))
-
+	spawn_fish()
+	
 func spawn_fish():
 	var fish = fishes.instantiate()
 	var Ylist = [96, 328, 536]
