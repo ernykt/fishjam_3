@@ -14,7 +14,6 @@ func _ready():
 	$Disappear.start(3)
 
 func _process(_delta):
-	print($Disappear.time_left)
 	if cursor in $ShootMiddle/GoodSpot.get_overlapping_bodies() and pressed:
 		print("no punishment")
 		hit = true
