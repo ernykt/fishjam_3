@@ -1,0 +1,145 @@
+[gd_scene load_steps=20 format=3 uid="uid://bi7ham37540hb"]
+
+[ext_resource type="Texture2D" uid="uid://b3xd352suvjql" path="res://sprites/whatsappshark.png" id="1_c5nnx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsdwt"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imne4"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdao8"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3qyq"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h0ng"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leu5v"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(160, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtyxe"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(192, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk6ml"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(224, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i28mn"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tiot"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr8er"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxdpe"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v01ul"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsx0r"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfl0i"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhvbs"]
+atlas = ExtResource("1_c5nnx")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8n81"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsdwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imne4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdao8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3qyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h0ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leu5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtyxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk6ml")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i28mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1tiot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr8er")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxdpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v01ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsx0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfl0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhvbs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ra63e"]
+size = Vector2(280, 117)
+
+[node name="WhatsappShark" type="CharacterBody2D"]
+
+[node name="WhatsappSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_a8n81")
+animation = &"attack"
+autoplay = "default"
+frame = 4
+frame_progress = 0.592638
+
+[node name="WhatsappCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-44, 2.5)
+shape = SubResource("RectangleShape2D_ra63e")
