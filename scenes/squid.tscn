@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ox5f3gmgd67f"]
+[gd_scene load_steps=8 format=3 uid="uid://ox5f3gmgd67f"]
 
 [ext_resource type="Texture2D" uid="uid://3a8aiqicdwvp" path="res://sprites/SpearFishing Assets Pack/Sprites/Squid - 32x16.png" id="1_b1r0l"]
+[ext_resource type="Script" path="res://scripts/squid.gd" id="2_cirny"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nlj24"]
 atlas = ExtResource("1_b1r0l")
@@ -39,5 +40,7 @@ animations = [{
 }]
 
 [node name="Squid" type="AnimatedSprite2D"]
+scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_dp82d")
 autoplay = "default"
+script = ExtResource("2_cirny")

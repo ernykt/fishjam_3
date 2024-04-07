@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bikxd8cjpd8v6"]
+[gd_scene load_steps=7 format=3 uid="uid://bikxd8cjpd8v6"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_lfhuc"]
 [ext_resource type="Texture2D" uid="uid://b6jjobevro6g" path="res://sprites/background.png" id="2_x114u"]
-[ext_resource type="PackedScene" path="res://scenes/bubble_spawner.tscn" id="3_g5fmk"]
+[ext_resource type="PackedScene" uid="uid://bd6u68syvlfgo" path="res://scenes/bubble_spawner.tscn" id="3_g5fmk"]
+[ext_resource type="PackedScene" uid="uid://d1en5bxcnnekh" path="res://scenes/squid_spawner.tscn" id="4_xypqm"]
+[ext_resource type="PackedScene" uid="uid://bc23wd1wkaq66" path="res://scenes/sea_weed_1.tscn" id="5_rqh6x"]
+[ext_resource type="PackedScene" uid="uid://bqpk7cuaxli4y" path="res://scenes/sea_weed_2.tscn" id="6_vfuut"]
 
 [node name="Menu" type="Control"]
 z_index = -2
@@ -19,6 +22,8 @@ position = Vector2(576, 324)
 texture = ExtResource("2_x114u")
 
 [node name="BubbleSpawner" parent="." instance=ExtResource("3_g5fmk")]
+
+[node name="SquidSpawner" parent="." instance=ExtResource("4_xypqm")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -39,6 +44,53 @@ text = "Play"
 layout_mode = 2
 text = "Quit
 "
+
+[node name="SeaWeed" type="Node2D" parent="."]
+
+[node name="SeaWeed_1" parent="SeaWeed" instance=ExtResource("5_rqh6x")]
+position = Vector2(167, 550)
+scale = Vector2(2.5625, 3)
+frame_progress = 0.180612
+
+[node name="SeaWeed_2" parent="SeaWeed" instance=ExtResource("5_rqh6x")]
+position = Vector2(251, 581)
+scale = Vector2(2.5625, 3)
+frame_progress = 0.0246444
+
+[node name="SeaWeed_3" parent="SeaWeed" instance=ExtResource("5_rqh6x")]
+position = Vector2(605, 549)
+scale = Vector2(2.5625, 3)
+frame_progress = 0.0246444
+
+[node name="SeaWeed_4" parent="SeaWeed" instance=ExtResource("5_rqh6x")]
+position = Vector2(899, 569)
+scale = Vector2(2.5625, 3)
+frame_progress = 0.0246444
+
+[node name="SeaWeed_5" parent="SeaWeed" instance=ExtResource("5_rqh6x")]
+position = Vector2(1105, 545)
+scale = Vector2(2.5625, 3)
+frame_progress = 0.0246444
+
+[node name="SeaWeed_6" parent="SeaWeed" instance=ExtResource("6_vfuut")]
+position = Vector2(196, 597)
+scale = Vector2(2.3125, 2.375)
+
+[node name="SeaWeed_7" parent="SeaWeed" instance=ExtResource("6_vfuut")]
+position = Vector2(411, 573)
+scale = Vector2(2.3125, 2.375)
+
+[node name="SeaWeed_8" parent="SeaWeed" instance=ExtResource("6_vfuut")]
+position = Vector2(638, 590)
+scale = Vector2(2.3125, 2.375)
+
+[node name="SeaWeed_9" parent="SeaWeed" instance=ExtResource("6_vfuut")]
+position = Vector2(786, 529)
+scale = Vector2(2.3125, 2.375)
+
+[node name="SeaWeed_10" parent="SeaWeed" instance=ExtResource("6_vfuut")]
+position = Vector2(1037, 580)
+scale = Vector2(2.3125, 2.375)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

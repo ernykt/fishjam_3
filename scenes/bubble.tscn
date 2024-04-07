@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://qio331gnll4d"]
 
-[ext_resource type="Texture2D" uid="uid://crio7jgioocqo" path="res://sprites/Bubble_-_8x8.png" id="1_rg5dw"]
+[ext_resource type="Texture2D" uid="uid://du5vuff5qe71w" path="res://sprites/Bubble_-_8x8.png" id="1_rg5dw"]
 [ext_resource type="Script" path="res://scripts/bubble.gd" id="2_j54cs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivhw0"]

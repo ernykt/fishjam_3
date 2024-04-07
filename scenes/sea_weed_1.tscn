@@ -1,0 +1,100 @@
+[gd_scene load_steps=15 format=3 uid="uid://bc23wd1wkaq66"]
+
+[ext_resource type="Texture2D" uid="uid://fonb4qju0y17" path="res://sprites/SpearFishing Assets Pack/Sprites/SeaWeed - 16x32/Blue.png" id="1_xgnid"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chi70"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmfoe"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3kgl"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmrx3"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmys1"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cge0s"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33uq7"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfj5i"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkxqo"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15u2r"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgklt"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(160, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxigc"]
+atlas = ExtResource("1_xgnid")
+region = Rect2(176, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_umsl1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chi70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmfoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3kgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmrx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmys1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cge0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33uq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfj5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkxqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15u2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgklt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxigc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SeaWeed_1" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_umsl1")
+autoplay = "default"
+frame_progress = 0.626605
