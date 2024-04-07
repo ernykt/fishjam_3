@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmjjkroajpcdd"]
+[gd_scene load_steps=9 format=3 uid="uid://bmjjkroajpcdd"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_6cbwh"]
 [ext_resource type="PackedScene" uid="uid://bfu7n6jo0a54g" path="res://scenes/door_1.tscn" id="2_dcpk6"]
 [ext_resource type="Script" path="res://scripts/FishSpawner.gd" id="2_y26cx"]
 [ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="4_re186"]
+[ext_resource type="FontFile" uid="uid://buede4apjhr3f" path="res://fonts/ARCADECLASSIC.TTF" id="5_exvjo"]
 [ext_resource type="Texture2D" uid="uid://c7fb4dwm3isk" path="res://sprites/game_background.png" id="5_g5k60"]
 [ext_resource type="PackedScene" uid="uid://bmy4i1owuge7v" path="res://scenes/gui.tscn" id="6_vb6s0"]
 
@@ -57,6 +58,8 @@ offset_left = 32.0
 offset_top = 18.0
 offset_right = 97.0
 offset_bottom = 73.0
+theme_override_fonts/font = ExtResource("5_exvjo")
+theme_override_font_sizes/font_size = 50
 text = "465465"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

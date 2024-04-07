@@ -132,7 +132,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ra63e"]
-size = Vector2(280, 117)
+size = Vector2(308, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jstj2"]
 size = Vector2(101, 72)
@@ -147,13 +147,13 @@ animation = &"attack"
 autoplay = "default"
 
 [node name="WhatsappCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-44, 2.5)
+position = Vector2(-56, -2)
 shape = SubResource("RectangleShape2D_ra63e")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(96, 0)
+position = Vector2(112, 0)
 shape = SubResource("RectangleShape2D_jstj2")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]

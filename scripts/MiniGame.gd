@@ -7,13 +7,22 @@ var SPEED = 300.0
 var right = true
 var pos
 var pressed = false
-var has_tried = false
+var hit = false
 
 func _ready():
 	pos = to_local(cursor.position)
+	$Disappear.start(3)
 
 func _process(_delta):
-	if cursor in $ShootMiddle/GoodSpot.get_overlapping_bodies() and pressed and not has_tried:
+	print($Disappear.time_left)
+	if cursor in $ShootMiddle/GoodSpot.get_overlapping_bodies() and pressed:
+		print("no punishment")
+		hit = true
+		Globals.emit_signal("success")
+		self.queue_free()
+	if pressed and cursor not in $ShootMiddle/GoodSpot.get_overlapping_bodies():
+		print("punishment")
+		Globals.emit_signal("punishment")
 		self.queue_free()
 	if not pressed:
 		move_cursor()
@@ -32,3 +41,7 @@ func move_cursor():
 			cursor.velocity = SPEED * Vector2.LEFT
 		if  int(to_local(cursor.position).x) == int(pos.x - 120):
 			right = true
+			
+func _on_disappear_timeout():
+	self.queue_free()
+	Globals.emit_signal("punishment")
