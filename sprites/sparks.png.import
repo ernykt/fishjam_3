@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dheuy54n4a2jx"
-path="res://.godot/imported/lux_ult.png-9c9444965cc59eb77792f5a2b99562b4.ctex"
+uid="uid://cg2m08akwtu58"
+path="res://.godot/imported/sparks.png-4c7610c9b08a9aec0f3ab5d174b3eefc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/lux_ult.png"
-dest_files=["res://.godot/imported/lux_ult.png-9c9444965cc59eb77792f5a2b99562b4.ctex"]
+source_file="res://sprites/sparks.png"
+dest_files=["res://.godot/imported/sparks.png-4c7610c9b08a9aec0f3ab5d174b3eefc.ctex"]
 
 [params]
 

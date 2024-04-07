@@ -23,6 +23,7 @@ position = Vector2(-352, -152)
 polygon = PackedVector2Array(344, 128, 360, 128, 360, 136, 368, 136, 368, 144, 368, 168, 360, 168, 360, 176, 344, 176, 344, 168, 336, 168, 336, 136, 344, 136)
 
 [node name="CursorBody" type="CharacterBody2D" parent="."]
+collision_mask = 4
 
 [node name="Cursor" type="Sprite2D" parent="CursorBody"]
 scale = Vector2(4, 4)
@@ -39,4 +40,9 @@ offset_right = 83.0
 offset_bottom = 145.0
 theme_override_fonts/font = ExtResource("4_gh7gs")
 
+[node name="Disappear" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="pressed" from="Shoot" to="." method="_on_shoot_pressed"]
+[connection signal="timeout" from="Disappear" to="." method="_on_disappear_timeout"]

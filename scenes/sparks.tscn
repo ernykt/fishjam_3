@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhf0tqyemnye6"]
+
+[ext_resource type="Texture2D" uid="uid://cg2m08akwtu58" path="res://sprites/sparks.png" id="1_fuius"]
+[ext_resource type="Script" path="res://scripts/sparks.gd" id="2_n6amq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g2nh"]
+atlas = ExtResource("1_fuius")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2goyv"]
+atlas = ExtResource("1_fuius")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kydyn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g2nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2goyv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w13ys"]
+atlas = ExtResource("1_fuius")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btkd2"]
+atlas = ExtResource("1_fuius")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cenuc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w13ys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btkd2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sparks" type="AnimatedSprite2D"]
+position = Vector2(395, 164)
+scale = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_kydyn")
+frame_progress = 0.453856
+script = ExtResource("2_n6amq")
+
+[node name="spark7" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3.8, -9.45)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_cenuc")
+autoplay = "default"
+
+[node name="spark6" type="AnimatedSprite2D" parent="."]
+position = Vector2(7.79999, 19.35)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_cenuc")
+autoplay = "default"
+
+[node name="spark5" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6.05, 4.95)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_cenuc")
+autoplay = "default"
+
+[node name="spark4" type="AnimatedSprite2D" parent="."]
+position = Vector2(-15.1, 12.6)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_cenuc")
+autoplay = "default"
+
+[node name="spark3" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.25, 7.55)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_cenuc")
+autoplay = "default"
+
+[node name="spark1" type="AnimatedSprite2D" parent="."]
+position = Vector2(-11.6, -8.45)
+sprite_frames = SubResource("SpriteFrames_cenuc")
+autoplay = "default"
+
+[node name="spark2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9, 16.85)
+sprite_frames = SubResource("SpriteFrames_cenuc")
+autoplay = "default"
+frame_progress = 0.503741
+
+[node name="DestroySparks" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="DestroySparks" to="." method="_on_destroy_sparks_timeout"]

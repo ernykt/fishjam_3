@@ -8,14 +8,15 @@ var dialog_options: Array[String] = ["test", "eren", "doki", "neden böyle oluyo
 var SPEED = 300.0
 var text_box
 var text_box_position: Vector2
-
+var fish_animation = ["default", "fish1", "fish2", "fish2", "fish2Green", "fish3", "fish3Red"]
 var is_dialog_active = false
 var can_advance_line = false
-
 var random_text = randi_range(0, 3)
 
+func _ready():
+	$FishSprite.play(fish_animation.pick_random())
+
 func _physics_process(delta):
-	$FishSprite.play("default")
 	velocity = Vector2(1, 0) * SPEED
 	move_and_collide(velocity * delta)
 	if not is_dialog_active:
