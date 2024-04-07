@@ -2,19 +2,27 @@ extends CharacterBody2D
 
 @onready var door_timer = $DoorCollisionTimer
 @onready var missile = preload("res://scenes/bomb.tscn")
+@onready var minigame = preload("res://scenes/mini_game.tscn")
 
 var can_rotate = true
 var in_position = false
 var disable_collision = false
 var timer : Timer
 var on_cooldown = false
-
+var chance_to_break = randi_range(4, 5)
+var is_broke = false
+var game
 func _ready():
+	game = minigame.instantiate()
+	game.position = global_position
+	add_child(game)
 	timer = Timer.new()
 	timer.one_shot = true
 	add_child(timer)
 
 func _process(delta):
+	print(game.pos)
+	#var chance_to_break = randi_range(1, 100)
 	$DetectFish.rotation = 0
 
 	if not can_rotate:
@@ -35,7 +43,8 @@ func _process(delta):
 		$Control/Button.disabled = false
 	if on_cooldown:
 		$Button3.text = str(int($Button3/BombCooldown.time_left))
-
+		
+		
 func _on_detect_fish_body_entered(body):
 	if "Fish" in body.name:
 		Globals.score += 10
