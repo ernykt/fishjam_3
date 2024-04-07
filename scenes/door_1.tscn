@@ -55,6 +55,7 @@ theme = SubResource("Theme_5rsqa")
 
 [node name="Button" type="Button" parent="Control"]
 z_index = 1
+layout_mode = 0
 offset_left = 387.0
 offset_top = 262.0
 offset_right = 446.0
