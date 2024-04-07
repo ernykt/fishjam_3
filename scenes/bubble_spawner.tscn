@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bd6u68syvlfgo"]
 
 [ext_resource type="Script" path="res://scripts/BubbleSpawner.gd" id="1_3ycmc"]
-[ext_resource type="Texture2D" uid="uid://crio7jgioocqo" path="res://sprites/Bubble_-_8x8.png" id="2_ee77u"]
+[ext_resource type="Texture2D" uid="uid://du5vuff5qe71w" path="res://sprites/Bubble_-_8x8.png" id="2_ee77u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_khppm"]
 atlas = ExtResource("2_ee77u")
@@ -83,6 +83,7 @@ autostart = true
 
 [node name="bubble" type="AnimatedSprite2D" parent="."]
 z_index = -1
+position = Vector2(-30, 102)
 sprite_frames = SubResource("SpriteFrames_dljco")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
