@@ -33,8 +33,7 @@ func _process(delta):
 		$Control/Button.disabled = false
 
 func _on_detect_fish_body_entered(_body):
-	#$DoorShape.set_deferred("disabled", false)
-	pass
+	Globals.score += 10
 	
 func _on_button_pressed():
 	can_rotate = false
