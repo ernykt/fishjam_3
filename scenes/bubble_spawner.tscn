@@ -1,0 +1,88 @@
+[gd_scene load_steps=13 format=3 uid="uid://bd6u68syvlfgo"]
+
+[ext_resource type="Script" path="res://scripts/BubbleSpawner.gd" id="1_3ycmc"]
+[ext_resource type="Texture2D" uid="uid://crio7jgioocqo" path="res://sprites/Bubble_-_8x8.png" id="2_ee77u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khppm"]
+atlas = ExtResource("2_ee77u")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bu2ur"]
+atlas = ExtResource("2_ee77u")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncwsf"]
+atlas = ExtResource("2_ee77u")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2ojj"]
+atlas = ExtResource("2_ee77u")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77pp5"]
+atlas = ExtResource("2_ee77u")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg56p"]
+atlas = ExtResource("2_ee77u")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c12jn"]
+atlas = ExtResource("2_ee77u")
+region = Rect2(48, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7amj"]
+atlas = ExtResource("2_ee77u")
+region = Rect2(56, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk3le"]
+atlas = ExtResource("2_ee77u")
+region = Rect2(64, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dljco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khppm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bu2ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncwsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2ojj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77pp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg56p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c12jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7amj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk3le")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BubbleSpawner" type="Node2D"]
+script = ExtResource("1_3ycmc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="bubble" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_dljco")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

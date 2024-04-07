@@ -1,80 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bikxd8cjpd8v6"]
+[gd_scene load_steps=4 format=3 uid="uid://bikxd8cjpd8v6"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_lfhuc"]
-[ext_resource type="Script" path="res://scripts/BubbleSpawner.gd" id="2_ptubg"]
 [ext_resource type="Texture2D" uid="uid://b6jjobevro6g" path="res://sprites/background.png" id="2_x114u"]
-[ext_resource type="Texture2D" uid="uid://crio7jgioocqo" path="res://sprites/Bubble_-_8x8.png" id="3_4y073"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_khppm"]
-atlas = ExtResource("3_4y073")
-region = Rect2(0, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bu2ur"]
-atlas = ExtResource("3_4y073")
-region = Rect2(8, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ncwsf"]
-atlas = ExtResource("3_4y073")
-region = Rect2(16, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a2ojj"]
-atlas = ExtResource("3_4y073")
-region = Rect2(24, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_77pp5"]
-atlas = ExtResource("3_4y073")
-region = Rect2(32, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tg56p"]
-atlas = ExtResource("3_4y073")
-region = Rect2(40, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c12jn"]
-atlas = ExtResource("3_4y073")
-region = Rect2(48, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_y7amj"]
-atlas = ExtResource("3_4y073")
-region = Rect2(56, 0, 8, 8)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jk3le"]
-atlas = ExtResource("3_4y073")
-region = Rect2(64, 0, 8, 8)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dljco"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_khppm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bu2ur")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ncwsf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a2ojj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_77pp5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tg56p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c12jn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_y7amj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jk3le")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="PackedScene" uid="uid://bd6u68syvlfgo" path="res://scenes/bubble_spawner.tscn" id="3_g5fmk"]
 
 [node name="Menu" type="Control"]
 z_index = -2
@@ -90,16 +18,7 @@ script = ExtResource("1_lfhuc")
 position = Vector2(576, 324)
 texture = ExtResource("2_x114u")
 
-[node name="BubbleSpawner" type="Node2D" parent="."]
-script = ExtResource("2_ptubg")
-
-[node name="Timer" type="Timer" parent="BubbleSpawner"]
-wait_time = 0.1
-autostart = true
-
-[node name="bubble" type="AnimatedSprite2D" parent="BubbleSpawner"]
-z_index = -1
-sprite_frames = SubResource("SpriteFrames_dljco")
+[node name="BubbleSpawner" parent="." instance=ExtResource("3_g5fmk")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
@@ -121,6 +40,5 @@ layout_mode = 2
 text = "Quit
 "
 
-[connection signal="timeout" from="BubbleSpawner/Timer" to="BubbleSpawner" method="_on_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

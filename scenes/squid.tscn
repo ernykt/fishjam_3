@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://ox5f3gmgd67f"]
+
+[ext_resource type="Texture2D" uid="uid://3a8aiqicdwvp" path="res://sprites/SpearFishing Assets Pack/Sprites/Squid - 32x16.png" id="1_b1r0l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlj24"]
+atlas = ExtResource("1_b1r0l")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snxym"]
+atlas = ExtResource("1_b1r0l")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33i2k"]
+atlas = ExtResource("1_b1r0l")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33jwn"]
+atlas = ExtResource("1_b1r0l")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dp82d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlj24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snxym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33i2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33jwn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Squid" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_dp82d")
+autoplay = "default"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmjjkroajpcdd"]
+[gd_scene load_steps=6 format=3 uid="uid://bmjjkroajpcdd"]
 
 [ext_resource type="PackedScene" uid="uid://bfu7n6jo0a54g" path="res://scenes/door_1.tscn" id="2_dcpk6"]
 [ext_resource type="Script" path="res://scripts/FishSpawner.gd" id="2_y26cx"]
+[ext_resource type="PackedScene" uid="uid://bd6u68syvlfgo" path="res://scenes/bubble_spawner.tscn" id="4_j25n6"]
 [ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="4_re186"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh75t"]
@@ -46,6 +47,8 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_fh75t")
 one_way_collision = true
 one_way_collision_margin = 0.0
+
+[node name="BubbleSpawner" parent="." instance=ExtResource("4_j25n6")]
 
 [connection signal="timeout" from="FishSpawner/Timer" to="FishSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
