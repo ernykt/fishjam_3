@@ -40,7 +40,7 @@ func _process(delta):
 		$DoorShape.disabled = false
 	if $DoorSprite.rotation_degrees >= 0:
 		in_position = false
-		$Control/Button.disabled = false
+		$Button.disabled = false
 	if on_cooldown:
 		$Button3.text = str(int($Button3/BombCooldown.time_left))
 		
@@ -51,7 +51,7 @@ func _on_detect_fish_body_entered(body):
 	
 func _on_button_pressed():
 	can_rotate = false
-	$Control/Button.disabled = true
+	$Button.disabled = true
 	timer.start(2)
 	
 func shoot():
