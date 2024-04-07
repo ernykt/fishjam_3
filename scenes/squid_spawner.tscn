@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1en5bxcnnekh"]
 
-[ext_resource type="Script" path="res://SquidSpawner.gd" id="1_h25of"]
+[ext_resource type="Script" path="res://scripts/SquidSpawner.gd" id="1_h25of"]
 [ext_resource type="PackedScene" uid="uid://ox5f3gmgd67f" path="res://scenes/squid.tscn" id="2_y68od"]
 
 [node name="SquidSpawner" type="Node2D"]

@@ -18,42 +18,37 @@ func _ready():
 	add_child(timer)
 
 func _process(delta):
-	print(chance_to_break)
-	if not is_broken:
-		chance_to_break = randi_range(1, 5)
-	if chance_to_break != 5:
-		$DetectFish.rotation = 0
-		if not can_rotate:
-			$DoorSprite.rotation -= 1.5 * delta
-		if $DoorSprite.rotation_degrees < -90:
-			can_rotate = true
-			in_position = true
-			#$DoorShape.disabled = false
-			if not disable_collision:
-				disable_collision = true
-				$DoorShape.disabled = true
-		if can_rotate and in_position and timer.is_stopped():
-			$DoorSprite.rotation += 1.5 * delta
-			disable_collision = false
-			$DoorShape.disabled = false
-		if $DoorSprite.rotation_degrees >= 0:
-			in_position = false
-			$Control/Button.disabled = false
-		if on_cooldown:
-			$Button3.text = str(int($Button3/BombCooldown.time_left))
-	elif chance_to_break == 5:
-		Globals.emit_signal("broken",position)
-		$Control/Button.disabled = true
-		is_broken = true
-		chance_to_break = -1
-			
+	print(game.pos)
+	#var chance_to_break = randi_range(1, 100)
+	$DetectFish.rotation = 0
+
+	if not can_rotate:
+		$DoorSprite.rotation -= 1.5 * delta
+	if $DoorSprite.rotation_degrees < -90:
+		can_rotate = true
+		in_position = true
+		#$DoorShape.disabled = false
+		if not disable_collision:
+			disable_collision = true
+			$DoorShape.disabled = true
+	if can_rotate and in_position and timer.is_stopped():
+		$DoorSprite.rotation += 1.5 * delta
+		disable_collision = false
+		$DoorShape.disabled = false
+	if $DoorSprite.rotation_degrees >= 0:
+		in_position = false
+		$Button.disabled = false
+	if on_cooldown:
+		$Button3.text = str(int($Button3/BombCooldown.time_left))
+		
+		
 func _on_detect_fish_body_entered(body):
 	if "Fish" in body.name:
 		Globals.score += 10
 	
 func _on_button_pressed():
 	can_rotate = false
-	$Control/Button.disabled = true
+	$Button.disabled = true
 	timer.start(2)
 	
 func shoot():
