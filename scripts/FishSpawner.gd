@@ -1,18 +1,16 @@
 extends Node2D
  
 @onready var fishes = preload("res://scenes/fish_1.tscn")
+@onready var whatsapp_shark = preload("res://scenes/whatsapp_shark.tscn")
+@onready var mobs = [fishes, whatsapp_shark]
 
-func _ready():
-	$Timer.start(randf_range(5,7))
-	spawn_fish()
-	
 func spawn_fish():
-	var fish = fishes.instantiate()
+	var fish = mobs.pick_random().instantiate()
 	var Ylist = [96, 328, 536]
 	fish.position = Vector2(0, Ylist.pick_random())
 	add_child(fish, true)
 	
 func _on_timer_timeout():
 	spawn_fish()
-	$Timer.start(randf_range(5, 10))
+	$Timer.start(randf_range(3, 5))
 

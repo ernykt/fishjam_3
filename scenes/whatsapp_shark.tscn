@@ -1,6 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://bi7ham37540hb"]
+[gd_scene load_steps=25 format=3 uid="uid://bi7ham37540hb"]
 
+[ext_resource type="Script" path="res://scripts/whatsapp_shark.gd" id="1_2devu"]
 [ext_resource type="Texture2D" uid="uid://b3xd352suvjql" path="res://sprites/whatsappshark.png" id="1_c5nnx"]
+[ext_resource type="Texture2D" uid="uid://42k4hfsepdp7" path="res://sprites/under.png" id="3_dx71h"]
+[ext_resource type="Texture2D" uid="uid://boxxppmo1lhva" path="res://sprites/over.png" id="4_iu3o1"]
+[ext_resource type="Texture2D" uid="uid://dyptfsbvch443" path="res://sprites/progress.png" id="5_n1fm7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qsdwt"]
 atlas = ExtResource("1_c5nnx")
@@ -93,7 +97,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kk6ml")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 12.0
 }, {
@@ -130,16 +134,44 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ra63e"]
 size = Vector2(280, 117)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jstj2"]
+size = Vector2(101, 72)
+
 [node name="WhatsappShark" type="CharacterBody2D"]
+script = ExtResource("1_2devu")
 
 [node name="WhatsappSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_a8n81")
 animation = &"attack"
 autoplay = "default"
-frame = 4
-frame_progress = 0.592638
 
 [node name="WhatsappCollision" type="CollisionShape2D" parent="."]
 position = Vector2(-44, 2.5)
 shape = SubResource("RectangleShape2D_ra63e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(96, 0)
+shape = SubResource("RectangleShape2D_jstj2")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -22.0
+offset_top = 74.0
+offset_right = 26.0
+offset_bottom = 114.0
+value = 100.0
+stretch_margin_left = 20
+stretch_margin_right = 20
+texture_under = ExtResource("3_dx71h")
+texture_over = ExtResource("4_iu3o1")
+texture_progress = ExtResource("5_n1fm7")
+
+[node name="PatienceTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="animation_changed" from="WhatsappSprite" to="." method="_on_whatsapp_sprite_animation_changed"]
+[connection signal="animation_finished" from="WhatsappSprite" to="." method="_on_whatsapp_sprite_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="PatienceTimer" to="." method="_on_patience_timer_timeout"]

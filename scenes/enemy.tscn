@@ -142,7 +142,8 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_15cj4")
 animation = &"attack"
 autoplay = "default"
-frame_progress = 0.354957
+frame = 1
+frame_progress = 0.938289
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_160u6")
