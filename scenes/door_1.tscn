@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfu7n6jo0a54g"]
+[gd_scene load_steps=7 format=3 uid="uid://bfu7n6jo0a54g"]
 
 [ext_resource type="Script" path="res://scripts/door_1.gd" id="1_et4hm"]
 [ext_resource type="Texture2D" uid="uid://dhrbiy1xj1vef" path="res://icon.svg" id="1_utqro"]
@@ -8,6 +8,16 @@ size = Vector2(698, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crqgu"]
 size = Vector2(643.25, 745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s4rhe"]
+bg_color = Color(0.192157, 0.686275, 0.607843, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="Theme" id="Theme_5rsqa"]
+Button/styles/normal = SubResource("StyleBoxFlat_s4rhe")
 
 [node name="Door1" type="CharacterBody2D"]
 scale = Vector2(0.3, 0.3)
@@ -32,17 +42,24 @@ position = Vector2(341, 59)
 position = Vector2(-82.375, 283.5)
 shape = SubResource("RectangleShape2D_crqgu")
 
-[node name="Button" type="Button" parent="."]
+[node name="DoorCollisionTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_5rsqa")
+
+[node name="Button" type="Button" parent="Control"]
 z_index = 1
 offset_left = 387.0
 offset_top = 262.0
 offset_right = 446.0
 offset_bottom = 415.0
-scale = Vector2(2.46666, 1)
-
-[node name="DoorCollisionTimer" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true
+scale = Vector2(1, 0.405)
 
 [connection signal="body_entered" from="DetectFish" to="." method="_on_detect_fish_body_entered"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
