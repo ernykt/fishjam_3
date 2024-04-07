@@ -15,8 +15,13 @@ run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://scripts/globals.gd"
+
 [display]
 
+window/size/resizable=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

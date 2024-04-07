@@ -21,6 +21,7 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if "Fish" in body.name:
+		Globals.score -= 5
 		$Sprite2D.play("attack")
 		body.queue_free()
 		var tween_mod = get_tree().create_tween()
@@ -29,9 +30,12 @@ func _on_area_2d_body_entered(body):
 		tween_mod.tween_property(self, "modulate:a", 0, 1)
 		tween_mod.tween_callback(queue_free)
 
-
 func _on_timer_timeout():
 	$CollisionShape2D.disabled = true
 	velocity = Vector2(1, 0) * SPEED
 	$Sprite2D.flip_h = false
-	
+	var tween_mod = get_tree().create_tween()
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", position - Vector2(0, 25), 1)
+	tween_mod.tween_property(self, "modulate:a", 0, 1)
+	tween_mod.tween_callback(queue_free)

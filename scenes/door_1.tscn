@@ -42,6 +42,15 @@ position = Vector2(341, 59)
 position = Vector2(-82.375, 283.5)
 shape = SubResource("RectangleShape2D_crqgu")
 
+[node name="Button" type="Button" parent="."]
+z_index = 1
+offset_left = 387.0
+offset_top = 262.0
+offset_right = 446.0
+offset_bottom = 415.0
+scale = Vector2(2.46666, 1)
+text = "OPEN"
+
 [node name="DoorCollisionTimer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
