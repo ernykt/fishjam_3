@@ -16,7 +16,7 @@ func _process(delta):
 	$DetectFish.rotation = 0
 
 	if not can_rotate:
-		$DoorSprite.rotation -= 1 * delta
+		$DoorSprite.rotation -= 1.5 * delta
 	if $DoorSprite.rotation_degrees < -90:
 		can_rotate = true
 		in_position = true
@@ -25,16 +25,15 @@ func _process(delta):
 			disable_collision = true
 			$DoorShape.disabled = true
 	if can_rotate and in_position and timer.is_stopped():
-		$DoorSprite.rotation += 1 * delta
+		$DoorSprite.rotation += 1.5 * delta
 		disable_collision = false
 		$DoorShape.disabled = false
 	if $DoorSprite.rotation_degrees >= 0:
 		in_position = false
 		$Button.disabled = false
-
+		
 func _on_detect_fish_body_entered(body):
-	#$DoorShape.set_deferred("disabled", false)
-	pass
+	Globals.score += 1
 	
 func _on_button_pressed():
 	can_rotate = false

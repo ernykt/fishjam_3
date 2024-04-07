@@ -39,6 +39,7 @@ offset_top = 262.0
 offset_right = 446.0
 offset_bottom = 415.0
 scale = Vector2(2.46666, 1)
+text = "OPEN"
 
 [node name="DoorCollisionTimer" type="Timer" parent="."]
 wait_time = 0.2

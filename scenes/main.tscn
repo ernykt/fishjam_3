@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmjjkroajpcdd"]
+[gd_scene load_steps=6 format=3 uid="uid://bmjjkroajpcdd"]
 
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_6cbwh"]
 [ext_resource type="PackedScene" uid="uid://bfu7n6jo0a54g" path="res://scenes/door_1.tscn" id="2_dcpk6"]
 [ext_resource type="Script" path="res://scripts/FishSpawner.gd" id="2_y26cx"]
 [ext_resource type="Script" path="res://scripts/EnemySpawner.gd" id="4_re186"]
@@ -8,6 +9,7 @@
 size = Vector2(641.671, 35.925)
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_6cbwh")
 
 [node name="Doors" type="Node2D" parent="."]
 position = Vector2(-32, 8)
@@ -35,7 +37,7 @@ wait_time = 2.0
 script = ExtResource("4_re186")
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
-wait_time = 2.0
+wait_time = 10.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -46,6 +48,13 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_fh75t")
 one_way_collision = true
 one_way_collision_margin = 0.0
+
+[node name="Score" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 18.0
+offset_right = 97.0
+offset_bottom = 73.0
+text = "465465"
 
 [connection signal="timeout" from="FishSpawner/Timer" to="FishSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
