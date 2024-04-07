@@ -3,8 +3,6 @@ extends Node2D
 @onready var cursor = $CursorBody
 @onready var board = $ShootMiddle
 
-var border_left = -248
-var border_right = 216
 var SPEED = 300.0
 var right = true
 var pos
@@ -16,10 +14,9 @@ func _ready():
 
 func _process(_delta):
 	if cursor in $ShootMiddle/GoodSpot.get_overlapping_bodies() and pressed and not has_tried:
-		print("nice")
+		self.queue_free()
 	if not pressed:
-		pass
-		#move_cursor()
+		move_cursor()
 	cursor.move_and_slide()
 	
 func _on_shoot_pressed():
@@ -27,13 +24,11 @@ func _on_shoot_pressed():
 	pressed = true
 
 func move_cursor():
-		if to_local(cursor.position).x <= pos.x + 240 and right:
+		if to_local(cursor.position).x <= pos.x + 120 and right:
 			cursor.velocity = SPEED * Vector2.RIGHT
-		if int(to_local(cursor.position).x) == int(pos.x + 240):
-			print(to_local(cursor.position).x)
+		if int(to_local(cursor.position).x) == int(pos.x + 120):
 			right = false
-		if not right and to_local(cursor.position).x >= pos.x - 240:
+		if not right and to_local(cursor.position).x >= pos.x - 120:
 			cursor.velocity = SPEED * Vector2.LEFT
-			print("going left")
-		if  int(to_local(cursor.position).x) == int(pos.x - 240):
+		if  int(to_local(cursor.position).x) == int(pos.x - 120):
 			right = true
