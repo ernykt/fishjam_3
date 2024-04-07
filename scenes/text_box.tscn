@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvdaxrejp5kec"]
+[gd_scene load_steps=4 format=3 uid="uid://dvdaxrejp5kec"]
 
 [ext_resource type="Texture2D" uid="uid://bvqdutdw37u1x" path="res://sprites/text_balloon.png" id="1_fvmn1"]
 [ext_resource type="Script" path="res://scripts/text_box.gd" id="1_xou05"]
+[ext_resource type="FontFile" uid="uid://buede4apjhr3f" path="res://fonts/ARCADECLASSIC.TTF" id="3_xb2b3"]
 
 [node name="TextBox" type="MarginContainer"]
 offset_right = 40.0
@@ -27,6 +28,8 @@ theme_override_constants/margin_bottom = 8
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_xb2b3")
+theme_override_font_sizes/font_size = 35
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true

@@ -7,4 +7,3 @@ func _on_timer_timeout():
 	squid_scene.position.y = randi_range(50, 600)
 	squid_scene.position.x = exposition.pick_random()
 	get_tree().root.add_child(squid_scene)
-	

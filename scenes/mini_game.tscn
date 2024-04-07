@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://pj310nefxe7h"]
+
+[ext_resource type="Script" path="res://scripts/MiniGame.gd" id="1_mnx7y"]
+[ext_resource type="Texture2D" uid="uid://d27k3g1j75uql" path="res://sprites/cursor.png" id="2_4gfqk"]
+[ext_resource type="Texture2D" uid="uid://dr2ecw7scuw8b" path="res://sprites/shoot_middle.png" id="3_lktfg"]
+[ext_resource type="FontFile" uid="uid://buede4apjhr3f" path="res://fonts/ARCADECLASSIC.TTF" id="4_gh7gs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4hvg"]
+size = Vector2(8, 49)
+
+[node name="MiniGame" type="Node2D"]
+script = ExtResource("1_mnx7y")
+
+[node name="ShootMiddle" type="Sprite2D" parent="."]
+position = Vector2(461, 200)
+scale = Vector2(4, 4)
+texture = ExtResource("3_lktfg")
+
+[node name="GoodSpot" type="Area2D" parent="ShootMiddle"]
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShootMiddle/GoodSpot"]
+position = Vector2(-352, -152)
+polygon = PackedVector2Array(344, 128, 360, 128, 360, 136, 368, 136, 368, 144, 368, 168, 360, 168, 360, 176, 344, 176, 344, 168, 336, 168, 336, 136, 344, 136)
+
+[node name="CursorBody" type="CharacterBody2D" parent="."]
+position = Vector2(460, 212)
+
+[node name="Cursor" type="Sprite2D" parent="CursorBody"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_4gfqk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CursorBody"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_r4hvg")
+
+[node name="Shoot" type="Button" parent="."]
+offset_left = 348.0
+offset_top = 381.0
+offset_right = 506.0
+offset_bottom = 427.0
+theme_override_fonts/font = ExtResource("4_gh7gs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+
+[connection signal="pressed" from="Shoot" to="." method="_on_shoot_pressed"]
