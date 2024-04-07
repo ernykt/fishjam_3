@@ -3,7 +3,9 @@ extends CharacterBody2D
 @onready var door_timer = $DoorCollisionTimer
 @onready var missile = preload("res://scenes/bomb.tscn")
 @onready var minigame = preload("res://scenes/mini_game.tscn")
+const laserdo = preload("res://scenes/laserdo.tscn")
 
+var Ylist = [96, 328, 536]
 var can_rotate = true
 var in_position = false
 var disable_collision = false
@@ -11,6 +13,7 @@ var timer : Timer
 var on_cooldown = false
 var chance_to_break
 var is_broken = false
+var laser_cooldown = false
 
 func _ready():
 	timer = Timer.new()
@@ -18,7 +21,6 @@ func _ready():
 	add_child(timer)
 
 func _process(delta):
-	print(game.pos)
 	#var chance_to_break = randi_range(1, 100)
 	$DetectFish.rotation = 0
 
@@ -40,6 +42,8 @@ func _process(delta):
 		$Button.disabled = false
 	if on_cooldown:
 		$Button3.text = str(int($Button3/BombCooldown.time_left))
+	if laser_cooldown:
+		$Button2.text = str(int($Button2/LaserCooldown.time_left))
 		
 		
 func _on_detect_fish_body_entered(body):
@@ -68,3 +72,21 @@ func _on_button_3_pressed():
 		shoot()
 		$Button3/BombCooldown.start(3)
 		on_cooldown = true
+		
+func shoot_laser():
+	var laser_instance = laserdo.instantiate()
+	laser_instance.position.y = self.position.y + 100
+	get_tree().root.add_child(laser_instance)
+	laser_cooldown = false
+	
+func _on_button_2_pressed():
+	if $Button2/LaserCooldown.is_stopped():
+		shoot_laser()
+		$Button2/LaserCooldown.start(15)
+		laser_cooldown = true
+	
+
+
+func _on_laser_cooldown_timeout():
+	laser_cooldown = false
+	$Button3.text = ""

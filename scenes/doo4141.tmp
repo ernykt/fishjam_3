@@ -67,11 +67,9 @@ offset_left = 853.333
 offset_top = 400.0
 offset_right = 1013.33
 offset_bottom = 560.0
-theme_override_fonts/font = ExtResource("3_fyu1d")
-theme_override_font_sizes/font_size = 100
 
 [node name="LaserCooldown" type="Timer" parent="Button2"]
-wait_time = 15.0
+wait_time = 30.0
 one_shot = true
 
 [connection signal="body_entered" from="DetectFish" to="." method="_on_detect_fish_body_entered"]
@@ -79,4 +77,3 @@ one_shot = true
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
 [connection signal="timeout" from="Button3/BombCooldown" to="." method="_on_bomb_cooldown_timeout"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="timeout" from="Button2/LaserCooldown" to="." method="_on_laser_cooldown_timeout"]
