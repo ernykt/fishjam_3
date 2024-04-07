@@ -30,13 +30,14 @@ func _process(delta):
 		$DoorShape.disabled = false
 	if $DoorSprite.rotation_degrees >= 0:
 		in_position = false
-		$Button.disabled = false
-		
-func _on_detect_fish_body_entered(body):
-	Globals.score += 1
+		$Control/Button.disabled = false
+
+func _on_detect_fish_body_entered(_body):
+	#$DoorShape.set_deferred("disabled", false)
+	pass
 	
 func _on_button_pressed():
 	can_rotate = false
-	$Button.disabled = true
+	$Control/Button.disabled = true
 	timer.start(2)
 	
