@@ -28,10 +28,10 @@ shape = SubResource("RectangleShape2D_f0b5q")
 one_way_collision = true
 
 [node name="DetectFish" type="Area2D" parent="."]
-position = Vector2(341, 59)
+position = Vector2(1303.33, 66.6667)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectFish"]
-position = Vector2(675.667, 327.667)
+position = Vector2(-107.667, 304.333)
 shape = SubResource("RectangleShape2D_crqgu")
 
 [node name="Button" type="Button" parent="."]

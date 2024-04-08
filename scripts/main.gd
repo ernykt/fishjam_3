@@ -28,10 +28,6 @@ func spawn_boss():
 	angler_scene.position = Vector2(-500, 324)
 	add_child(angler_scene)
 
-func _on_area_2d_body_entered(body):
-	if "Angler" in body.name:
-		Globals.door_count = 0
-
 func _on_area_2d_2_body_entered(body):
 	if "Angler" in body.name:
 		if Globals.door_count != 0:
@@ -40,3 +36,8 @@ func _on_area_2d_2_body_entered(body):
 func _on_area_2d_2_body_exited(body):
 	if "Angler" in body.name:
 		body.SPEED = 500
+
+func _on_area_2d_body_entered(body):
+	print(body.name)
+	if "Enemy" in body.name:
+		body.velocity = Vector2.ZERO

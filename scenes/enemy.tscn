@@ -132,7 +132,7 @@ animations = [{
 size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ckhg"]
-size = Vector2(192, 192)
+size = Vector2(208, 192)
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_3a3mx")
@@ -140,10 +140,7 @@ script = ExtResource("1_3a3mx")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_15cj4")
-animation = &"attack"
 autoplay = "default"
-frame = 1
-frame_progress = 0.938289
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_160u6")
@@ -151,10 +148,13 @@ shape = SubResource("RectangleShape2D_160u6")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_4ckhg")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
+one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
