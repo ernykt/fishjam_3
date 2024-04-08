@@ -8,4 +8,5 @@ func spawn_enemy():
 	add_child(e, true)
 
 func _on_timer_timeout():
-	spawn_enemy()
+	if not Globals.boss_active:
+		spawn_enemy()

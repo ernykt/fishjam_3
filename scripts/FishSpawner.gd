@@ -11,6 +11,7 @@ func spawn_fish():
 	add_child(fish, true)
 	
 func _on_timer_timeout():
-	spawn_fish()
-	$Timer.start(randf_range(1, 3))
+	if not Globals.boss_active:
+		spawn_fish()
+		$Timer.start(randf_range(1, 3))
 

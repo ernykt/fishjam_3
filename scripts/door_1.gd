@@ -94,7 +94,7 @@ func _on_button_3_pressed():
 		on_cooldown = true
 
 func _on_fault_timer_timeout():
-	if not is_broken:
+	if not is_broken and not Globals.boss_active:
 		chance_to_break = randi_range(1,25)
 		
 func apply_punishment():
