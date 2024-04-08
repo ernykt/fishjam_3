@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_lfhuc"]
 [ext_resource type="Texture2D" uid="uid://b6jjobevro6g" path="res://sprites/background.png" id="2_x114u"]
 [ext_resource type="PackedScene" uid="uid://bd6u68syvlfgo" path="res://scenes/bubble_spawner.tscn" id="3_g5fmk"]
-[ext_resource type="PackedScene" path="res://scenes/squid_spawner.tscn" id="4_xypqm"]
+[ext_resource type="PackedScene" uid="uid://d1en5bxcnnekh" path="res://scenes/squid_spawner.tscn" id="4_xypqm"]
 [ext_resource type="FontFile" uid="uid://buede4apjhr3f" path="res://fonts/ARCADECLASSIC.TTF" id="5_jar8q"]
 [ext_resource type="PackedScene" path="res://scenes/sea_weed_1.tscn" id="5_rqh6x"]
 [ext_resource type="PackedScene" path="res://scenes/sea_weed_2.tscn" id="6_vfuut"]
@@ -19,7 +19,8 @@ grow_vertical = 2
 script = ExtResource("1_lfhuc")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
+position = Vector2(606, 323)
+scale = Vector2(1.21875, 0.996914)
 texture = ExtResource("2_x114u")
 
 [node name="BubbleSpawner" parent="." instance=ExtResource("3_g5fmk")]
@@ -28,10 +29,10 @@ texture = ExtResource("2_x114u")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_left = 476.0
-offset_top = 162.0
-offset_right = 704.0
-offset_bottom = 386.0
+offset_left = 491.0
+offset_top = 173.0
+offset_right = 719.0
+offset_bottom = 397.0
 pivot_offset = Vector2(112, 0)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]

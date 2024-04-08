@@ -32,7 +32,8 @@ func start_dialog():
 func _show_text_box():
 	text_box = text_box_scene.instantiate()
 	add_child(text_box)
-	text_box.global_position = global_position
+	text_box.global_position.x = global_position.x
+	text_box.global_position.y = global_position.y + 35
 	text_box.display_text(dialog_options[random_text])
 
 func _on_progress_timer_timeout():
