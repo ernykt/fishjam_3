@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://div5m4dpjtb0t"]
+
+[ext_resource type="Texture2D" uid="uid://dheuy54n4a2jx" path="res://sprites/lux_ult.png" id="1_h1hm3"]
+[ext_resource type="Script" path="res://scripts/laser.gd" id="1_wii6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubusu"]
+size = Vector2(81, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mic3q"]
+size = Vector2(4344, 183)
+
+[node name="Laser" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_wii6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1476.5, 0)
+scale = Vector2(67.1406, 20.6875)
+texture = ExtResource("1_h1hm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(433.5, -2)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ubusu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1488, 0.500008)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_mic3q")
+
+[node name="DestroyTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

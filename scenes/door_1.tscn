@@ -53,9 +53,9 @@ one_shot = true
 [node name="Button3" type="Button" parent="."]
 z_index = 3
 offset_left = 866.667
-offset_top = 373.333
+offset_top = 363.333
 offset_right = 1026.67
-offset_bottom = 533.333
+offset_bottom = 523.333
 theme_override_fonts/font = ExtResource("3_fyu1d")
 theme_override_font_sizes/font_size = 100
 
@@ -68,9 +68,23 @@ autostart = true
 [node name="PunishmentTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="LaserButton" type="Button" parent="."]
+z_index = 3
+offset_left = 866.667
+offset_top = 543.333
+offset_right = 1026.67
+offset_bottom = 690.333
+theme_override_fonts/font = ExtResource("3_fyu1d")
+theme_override_font_sizes/font_size = 100
+
+[node name="LaserButtonCooldown" type="Timer" parent="LaserButton"]
+one_shot = true
+
 [connection signal="body_entered" from="DetectFish" to="." method="_on_detect_fish_body_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
 [connection signal="timeout" from="Button3/BombCooldown" to="." method="_on_bomb_cooldown_timeout"]
 [connection signal="timeout" from="FaultTimer" to="." method="_on_fault_timer_timeout"]
 [connection signal="timeout" from="PunishmentTimer" to="." method="_on_punishment_timer_timeout"]
+[connection signal="pressed" from="LaserButton" to="." method="_on_laser_button_pressed"]
+[connection signal="timeout" from="LaserButton/LaserButtonCooldown" to="." method="_on_laser_button_cooldown_timeout"]

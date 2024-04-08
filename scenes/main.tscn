@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmjjkroajpcdd"]
+[gd_scene load_steps=10 format=3 uid="uid://bmjjkroajpcdd"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_6cbwh"]
 [ext_resource type="PackedScene" uid="uid://bfu7n6jo0a54g" path="res://scenes/door_1.tscn" id="2_dcpk6"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://buede4apjhr3f" path="res://fonts/ARCADECLASSIC.TTF" id="5_exvjo"]
 [ext_resource type="Texture2D" uid="uid://c7fb4dwm3isk" path="res://sprites/game_background.png" id="5_g5k60"]
 [ext_resource type="PackedScene" uid="uid://bmy4i1owuge7v" path="res://scenes/gui.tscn" id="6_vb6s0"]
+[ext_resource type="PackedScene" uid="uid://vkr5i8mixbpw" path="res://scenes/screen_shaker.tscn" id="8_18b74"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh75t"]
 size = Vector2(641.671, 35.925)
@@ -71,6 +72,9 @@ texture = ExtResource("5_g5k60")
 offset_left = 1147.0
 offset_right = 1147.0
 scale = Vector2(1.44, 1)
+
+[node name="ScreenShaker" parent="." instance=ExtResource("8_18b74")]
+position = Vector2(570, 329)
 
 [connection signal="timeout" from="FishSpawner/Timer" to="FishSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]

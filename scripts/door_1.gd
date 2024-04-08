@@ -5,15 +5,18 @@ extends CharacterBody2D
 @onready var minigame = preload("res://scenes/mini_game.tscn")
 @onready var spark = preload("res://scenes/sparks.tscn")
 @onready var own_button = $Button
+@onready var laser_scene = preload("res://scenes/laser.tscn")
+@onready var laser_cooldown = $LaserButton/LaserButtonCooldown
 
 var can_rotate = true
 var in_position = false
 var disable_collision = false
-var timer : Timer
 var on_cooldown = false
 var is_broken = false
+var laser_on_cooldown = false
 var chance_to_break
 var sparks_scene
+var timer : Timer
 
 
 func _ready():
@@ -49,6 +52,10 @@ func _process(delta):
 			own_button.disabled = false
 		if on_cooldown:
 			$Button3.text = str(int($Button3/BombCooldown.time_left))
+		if laser_on_cooldown:
+			$LaserButton.text = str(int($LaserButton/LaserButtonCooldown.time_left))
+		if not laser_on_cooldown:
+			$LaserButton.text = ""
 			
 func spark_generator():
 	sparks_scene = spark.instantiate()
@@ -100,3 +107,19 @@ func _on_punishment_timer_timeout():
 func no_punishment():
 	own_button.disabled = false
 	is_broken = false
+
+func _on_laser_button_pressed():
+	if laser_cooldown.is_stopped():
+		shoot_laser()
+		$LaserButton/LaserButtonCooldown.start(3)
+		laser_on_cooldown = true
+		Globals.camera.shake(1,5)
+	
+func shoot_laser():
+	var laser_instance = laser_scene.instantiate()
+	laser_instance.position.x = global_position.x
+	laser_instance.position.y = global_position.y + 100
+	get_tree().root.add_child(laser_instance)
+
+func _on_laser_button_cooldown_timeout():
+	laser_on_cooldown = false
