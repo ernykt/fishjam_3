@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://vm37jkl1uydv"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_v4oly"]
+[ext_resource type="FontFile" uid="uid://buede4apjhr3f" path="res://fonts/ARCADECLASSIC.TTF" id="2_tqadp"]
+[ext_resource type="Texture2D" uid="uid://b6jjobevro6g" path="res://sprites/background.png" id="3_kld1i"]
+[ext_resource type="PackedScene" uid="uid://bd6u68syvlfgo" path="res://scenes/bubble_spawner.tscn" id="4_2o41w"]
+[ext_resource type="PackedScene" uid="uid://d1en5bxcnnekh" path="res://scenes/squid_spawner.tscn" id="5_sabx4"]
+[ext_resource type="PackedScene" uid="uid://bc23wd1wkaq66" path="res://scenes/sea_weed_1.tscn" id="6_lhdus"]
+[ext_resource type="PackedScene" uid="uid://bqpk7cuaxli4y" path="res://scenes/sea_weed_2.tscn" id="7_bifvm"]
+
+[node name="YouWon" type="Control"]
+z_index = -2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v4oly")
+
+[node name="YouWon" type="Label" parent="."]
+z_index = 2
+layout_mode = 2
+offset_left = 415.0
+offset_top = 90.0
+offset_right = 828.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("2_tqadp")
+theme_override_font_sizes/font_size = 100
+text = "YOU WON!"
+
+[node name="Score" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 460.0
+offset_top = 189.0
+offset_right = 638.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("2_tqadp")
+theme_override_font_sizes/font_size = 30
+text = "SCORE:"
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 561.0
+offset_top = 197.0
+offset_right = 748.0
+offset_bottom = 228.0
+theme_override_fonts/font = ExtResource("2_tqadp")
+theme_override_font_sizes/font_size = 30
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(606, 323)
+scale = Vector2(1.21875, 0.996914)
+texture = ExtResource("3_kld1i")
+
+[node name="BubbleSpawner" parent="." instance=ExtResource("4_2o41w")]
+
+[node name="SquidSpawner" parent="." instance=ExtResource("5_sabx4")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 303.0
+offset_right = 723.0
+offset_bottom = 554.0
+pivot_offset = Vector2(112, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tqadp")
+theme_override_font_sizes/font_size = 100
+text = "Play"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tqadp")
+theme_override_font_sizes/font_size = 100
+text = "Quit
+"
+
+[node name="SeaWeed" type="Node2D" parent="."]
+
+[node name="SeaWeed_1" parent="SeaWeed" instance=ExtResource("6_lhdus")]
+position = Vector2(167, 550)
+scale = Vector2(2.5625, 3)
+frame_progress = 0.180612
+
+[node name="SeaWeed_2" parent="SeaWeed" instance=ExtResource("6_lhdus")]
+position = Vector2(251, 581)
+scale = Vector2(2.5625, 3)
+frame_progress = 0.0246444
+
+[node name="SeaWeed_3" parent="SeaWeed" instance=ExtResource("6_lhdus")]
+position = Vector2(605, 549)
+scale = Vector2(2.5625, 3)
+frame_progress = 0.0246444
+
+[node name="SeaWeed_4" parent="SeaWeed" instance=ExtResource("6_lhdus")]
+position = Vector2(899, 569)
+scale = Vector2(2.5625, 3)
+frame_progress = 0.0246444
+
+[node name="SeaWeed_5" parent="SeaWeed" instance=ExtResource("6_lhdus")]
+position = Vector2(1105, 545)
+scale = Vector2(2.5625, 3)
+frame_progress = 0.0246444
+
+[node name="SeaWeed_6" parent="SeaWeed" instance=ExtResource("7_bifvm")]
+position = Vector2(196, 597)
+scale = Vector2(2.3125, 2.375)
+
+[node name="SeaWeed_7" parent="SeaWeed" instance=ExtResource("7_bifvm")]
+position = Vector2(411, 573)
+scale = Vector2(2.3125, 2.375)
+
+[node name="SeaWeed_8" parent="SeaWeed" instance=ExtResource("7_bifvm")]
+position = Vector2(638, 590)
+scale = Vector2(2.3125, 2.375)
+
+[node name="SeaWeed_9" parent="SeaWeed" instance=ExtResource("7_bifvm")]
+position = Vector2(786, 529)
+scale = Vector2(2.3125, 2.375)
+
+[node name="SeaWeed_10" parent="SeaWeed" instance=ExtResource("7_bifvm")]
+position = Vector2(1037, 580)
+scale = Vector2(2.3125, 2.375)
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
