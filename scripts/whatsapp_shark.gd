@@ -8,7 +8,7 @@ var text_box
 var SPEED = 300.0
 var has_eaten = false
 var is_dialog_active = false
-var dialog_options = ["was ist app", "wassup", "WAZZUP !"]
+var dialog_options = ["Whatsapp !"]
 
 func start_dialog():
 	if is_dialog_active:
@@ -53,6 +53,7 @@ func _on_whatsapp_sprite_animation_finished():
 func _on_patience_timer_timeout():
 	patience_bar.value -= 10
 	if patience_bar.value <= 0:
+		Globals.score -= 50
 		var tween_mod = get_tree().create_tween()
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", position - Vector2(0, 25), 0.3)

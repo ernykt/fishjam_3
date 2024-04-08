@@ -63,8 +63,13 @@ func spark_generator():
 	add_child(sparks_scene)
 		
 func _on_detect_fish_body_entered(body):
-	if "Fish" in body.name:
+	if "Fish" in body.name or "Whatsapp" in body.name:
 		Globals.score -= 15
+		var tween_mod = get_tree().create_tween()
+		var tween = get_tree().create_tween()
+		tween.tween_property(body, "position", body.position - Vector2(0, 25), 0.3)
+		tween_mod.tween_property(body, "modulate:a", 0, 0.3)
+		tween_mod.tween_callback(body.queue_free)
 
 func _on_button_pressed():
 	can_rotate = false
