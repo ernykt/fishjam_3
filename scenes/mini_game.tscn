@@ -23,12 +23,15 @@ texture = ExtResource("3_lktfg")
 
 [node name="GoodSpot" type="Area2D" parent="ShootMiddle"]
 scale = Vector2(0.25, 0.25)
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ShootMiddle/GoodSpot"]
 position = Vector2(-352, -152)
 polygon = PackedVector2Array(344, 128, 360, 128, 360, 136, 368, 136, 368, 144, 368, 168, 360, 168, 360, 176, 344, 176, 344, 168, 336, 168, 336, 136, 344, 136)
 
 [node name="CursorBody" type="CharacterBody2D" parent="."]
+collision_layer = 4
 collision_mask = 4
 
 [node name="Cursor" type="Sprite2D" parent="CursorBody"]
@@ -51,6 +54,8 @@ wait_time = 5.0
 one_shot = true
 
 [node name="Right" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
 position = Vector2(115, 1)
@@ -58,12 +63,29 @@ shape = SubResource("RectangleShape2D_ec40t")
 
 [node name="Left" type="Area2D" parent="."]
 position = Vector2(-113, -4)
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
 position = Vector2(-2.5, 5.5)
 shape = SubResource("RectangleShape2D_31v3i")
 
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 2
+offset_left = 100.0
+offset_top = 22.0
+offset_right = 278.0
+offset_bottom = 156.0
+theme_override_fonts/font = ExtResource("4_gh7gs")
+theme_override_font_sizes/font_size = 50
+text = "+50"
+
+[node name="Timer" type="Timer" parent="Label"]
+one_shot = true
+
 [connection signal="pressed" from="Shoot" to="." method="_on_shoot_pressed"]
 [connection signal="timeout" from="Disappear" to="." method="_on_disappear_timeout"]
 [connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
 [connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
+[connection signal="timeout" from="Label/Timer" to="." method="_on_timer_timeout"]

@@ -15,11 +15,16 @@ func _ready():
 	$Disappear.start(3)
 
 func _process(_delta):
-	if cursor in $ShootMiddle/GoodSpot.get_overlapping_bodies() and pressed:
+	if cursor in $ShootMiddle/GoodSpot.get_overlapping_bodies() and pressed and not hit:
 		Globals.score += 50
 		hit = true
 		Globals.emit_signal("success")
-		self.queue_free()
+		board.visible = false
+		cursor.visible = false
+		$Label.visible = true
+		$Shoot.visible = false
+		$Disappear.stop()
+		$Label/Timer.start(1)
 	if pressed and cursor not in $ShootMiddle/GoodSpot.get_overlapping_bodies():
 		Globals.score -= 30
 		Globals.emit_signal("punishment")
@@ -41,11 +46,14 @@ func _on_shoot_pressed():
 			#right = true
 			
 func _on_disappear_timeout():
-	self.queue_free()
 	Globals.emit_signal("punishment")
+	self.queue_free()
 
 func _on_right_body_entered(_body):
 	cursor.velocity = -cursor.velocity
 
 func _on_left_body_entered(_body):
 	cursor.velocity = -cursor.velocity
+
+func _on_timer_timeout():
+	self.queue_free()

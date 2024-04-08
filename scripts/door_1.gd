@@ -89,7 +89,7 @@ func _on_bomb_cooldown_timeout():
 func _on_button_3_pressed():
 	if $Button3/BombCooldown.is_stopped():
 		shoot()
-		$Button3/BombCooldown.start(3)
+		$Button3/BombCooldown.start(2)
 		on_cooldown = true
 
 func _on_fault_timer_timeout():
@@ -119,7 +119,7 @@ func no_punishment():
 func _on_laser_button_pressed():
 	if laser_cooldown.is_stopped():
 		shoot_laser()
-		$LaserButton/LaserButtonCooldown.start(3)
+		$LaserButton/LaserButtonCooldown.start(10)
 		laser_on_cooldown = true
 		Globals.camera.shake(1,5)
 	
@@ -131,3 +131,4 @@ func shoot_laser():
 
 func _on_laser_button_cooldown_timeout():
 	laser_on_cooldown = false
+
