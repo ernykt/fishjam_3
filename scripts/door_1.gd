@@ -94,11 +94,17 @@ func _on_button_3_pressed():
 		on_cooldown = true
 
 func _on_fault_timer_timeout():
-	if not is_broken and not Globals.boss_active:
+	if not is_broken:
 		chance_to_break = randi_range(1,25)
 		
 func apply_punishment():
 	if is_broken:
+		if Globals.boss_active:
+			var tween_mod = get_tree().create_tween()
+			var tween = get_tree().create_tween()
+			tween.tween_property(self, "position", position - Vector2(0, 25), 0.3)
+			tween_mod.tween_property(self, "modulate:a", 0, 0.3)
+			tween_mod.tween_callback(queue_free)
 		print("punishment")
 		own_button.disabled = true
 		$PunishmentTimer.start(3)

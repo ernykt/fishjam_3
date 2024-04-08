@@ -3,7 +3,7 @@ extends Node2D
 @onready var fishes = preload("res://scenes/fish_1.tscn")
 @onready var whatsapp_shark = preload("res://scenes/whatsapp_shark.tscn")
 @onready var mobs = [fishes, whatsapp_shark]
-
+	
 func spawn_fish():
 	var fish = mobs.pick_random().instantiate()
 	var Ylist = [96, 328, 536]

@@ -20,6 +20,8 @@ func _physics_process(delta):
 	move_and_collide(velocity * delta)
 	if not is_dialog_active:
 		start_dialog()
+	if Globals.boss_active:
+		self.queue_free()
 
 func start_dialog():
 	if is_dialog_active:

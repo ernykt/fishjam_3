@@ -42,6 +42,8 @@ func _physics_process(delta):
 		self.queue_free()
 	if not is_dialog_active:
 		start_dialog()
+	if Globals.boss_active:
+		self.queue_free()
 
 func _on_whatsapp_sprite_animation_changed():
 	has_eaten = true

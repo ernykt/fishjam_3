@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://joghsx5u2hbx"]
+[gd_scene load_steps=22 format=3 uid="uid://bpu0w1nwpvj"]
 
 [ext_resource type="Script" path="res://scripts/angler_fish.gd" id="1_7gqqq"]
 [ext_resource type="Texture2D" uid="uid://dynkimj11d4fm" path="res://sprites/SpearFishing Assets Pack/Sprites/Sea angler - 32x32/SeaAngler.png" id="1_11yph"]
+[ext_resource type="Texture2D" uid="uid://b62yanves6yik" path="res://sprites/hit_marker.png" id="3_kw73p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3t7a"]
 atlas = ExtResource("1_11yph")
@@ -129,10 +130,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qys5u"]
-size = Vector2(19.8, 17.2)
+size = Vector2(10.3667, 5.05208)
 
-[node name="AnglerFish" type="CharacterBody2D"]
-scale = Vector2(15, 15)
+[node name="Angler" type="CharacterBody2D"]
+scale = Vector2(25, 25)
 script = ExtResource("1_7gqqq")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
@@ -140,6 +141,30 @@ sprite_frames = SubResource("SpriteFrames_yvvwx")
 autoplay = "default"
 frame_progress = 0.714719
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.0999999, 1.4)
+[node name="TopLane" type="CollisionShape2D" parent="."]
+position = Vector2(11.4, 7.76667)
 shape = SubResource("RectangleShape2D_qys5u")
+
+[node name="MidLane" type="CollisionShape2D" parent="."]
+position = Vector2(11.5667, -0.126042)
+shape = SubResource("RectangleShape2D_qys5u")
+
+[node name="BotLane" type="CollisionShape2D" parent="."]
+position = Vector2(11.6667, -7.8)
+shape = SubResource("RectangleShape2D_qys5u")
+
+[node name="PickLane" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="SpawnProtection" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="HitMarker" type="Sprite2D" parent="."]
+position = Vector2(12.76, -7.84)
+scale = Vector2(0.37, 0.3675)
+texture = ExtResource("3_kw73p")
+
+[connection signal="timeout" from="PickLane" to="." method="_on_pick_lane_timeout"]

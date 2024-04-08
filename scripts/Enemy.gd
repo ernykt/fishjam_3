@@ -10,6 +10,8 @@ func _ready():
 func _physics_process(delta):
 	if position.x > 1100 and not in_position:
 		velocity = Vector2(-1, 0) * SPEED
+	if Globals.boss_active:
+		self.queue_free()
 	
 	elif position.x <= 1000 or hungry: 
 		velocity = Vector2.ZERO
