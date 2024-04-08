@@ -18,7 +18,6 @@ var chance_to_break
 var sparks_scene
 var timer : Timer
 
-
 func _ready():
 	Globals.connect("punishment", apply_punishment)
 	Globals.connect("success", no_punishment)
@@ -65,8 +64,8 @@ func spark_generator():
 		
 func _on_detect_fish_body_entered(body):
 	if "Fish" in body.name:
-		Globals.score += 10
-	
+		Globals.score -= 15
+
 func _on_button_pressed():
 	can_rotate = false
 	own_button.disabled = true

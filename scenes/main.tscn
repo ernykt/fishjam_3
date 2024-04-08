@@ -65,7 +65,8 @@ text = "465465"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(576, 324)
+position = Vector2(557, 333)
+scale = Vector2(1.19965, 1.1821)
 texture = ExtResource("5_g5k60")
 
 [node name="UI" parent="." instance=ExtResource("6_vb6s0")]
@@ -74,7 +75,7 @@ offset_right = 1147.0
 scale = Vector2(1.44, 1)
 
 [node name="ScreenShaker" parent="." instance=ExtResource("8_18b74")]
-position = Vector2(570, 329)
+position = Vector2(576, 324)
 
 [connection signal="timeout" from="FishSpawner/Timer" to="FishSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]

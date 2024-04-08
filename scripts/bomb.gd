@@ -5,7 +5,7 @@ func ready():
 
 func _on_area_2d_body_entered(body):
 	if "Whatsapp" in body.name or "Fish" in body.name:
-		Globals.score -= 500
+		Globals.score += 50
 		$AnimatedSprite2D.play("explode")
 		body.queue_free()
 		linear_velocity = Vector2.ZERO

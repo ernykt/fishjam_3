@@ -21,7 +21,7 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if "Fish" in body.name:
-		Globals.score -= 5
+		Globals.score += 75
 		$Sprite2D.play("attack")
 		body.queue_free()
 		var tween_mod = get_tree().create_tween()

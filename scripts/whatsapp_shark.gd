@@ -27,7 +27,7 @@ func _show_text_box():
 
 func _on_area_2d_body_entered(body):
 	if "Enemy" in body.name:
-		Globals.score += 10
+		Globals.score -= 100
 		$WhatsappSprite.play("attack")
 		var tween_mod = get_tree().create_tween()
 		var tween = get_tree().create_tween()

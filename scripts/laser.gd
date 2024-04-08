@@ -14,5 +14,5 @@ func _on_destroy_timer_timeout():
 
 func _on_area_2d_body_entered(body):
 		if "Fish" in body.name or "Whatsapp" in body.name:
-			Globals.score -= 5
+			Globals.score += 25
 			body.queue_free()
