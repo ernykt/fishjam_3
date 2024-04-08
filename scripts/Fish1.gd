@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var text_box_scene = preload("res://scenes/text_box.tscn")
 @onready var progress_bar = $TextureProgressBar
 
-var dialog_options: Array[String] = ["test", "eren","uzun bir yazı denemesi","fazladan eleman denemesi","doki bunları sen yaz nolur"]
+var dialog_options: Array[String] = ["I left home for an adventure!", "I am going to see my family","Hello friends!","HAPPY!","Is that a metal fish?"]
 var SPEED = 300.0
 var text_box
 var text_box_position: Vector2
