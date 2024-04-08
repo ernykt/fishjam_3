@@ -16,3 +16,6 @@ func _on_area_2d_body_entered(body):
 		if "Fish" in body.name or "Whatsapp" in body.name:
 			Globals.score += 25
 			body.queue_free()
+		
+		if "Angler" in body.name:
+			body.health -= 100
