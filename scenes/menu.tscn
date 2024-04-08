@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bd6u68syvlfgo" path="res://scenes/bubble_spawner.tscn" id="3_g5fmk"]
 [ext_resource type="PackedScene" uid="uid://d1en5bxcnnekh" path="res://scenes/squid_spawner.tscn" id="4_xypqm"]
 [ext_resource type="FontFile" uid="uid://buede4apjhr3f" path="res://fonts/ARCADECLASSIC.TTF" id="5_jar8q"]
-[ext_resource type="PackedScene" path="res://scenes/sea_weed_1.tscn" id="5_rqh6x"]
-[ext_resource type="PackedScene" path="res://scenes/sea_weed_2.tscn" id="6_vfuut"]
+[ext_resource type="PackedScene" uid="uid://bc23wd1wkaq66" path="res://scenes/sea_weed_1.tscn" id="5_rqh6x"]
+[ext_resource type="PackedScene" uid="uid://bqpk7cuaxli4y" path="res://scenes/sea_weed_2.tscn" id="6_vfuut"]
 
 [node name="Menu" type="Control"]
 z_index = -2

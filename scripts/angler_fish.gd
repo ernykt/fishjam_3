@@ -8,7 +8,7 @@ var is_active = false
 var activated_lane
 var active_lane_pos
 
-const SPEED = 30.0
+var SPEED = 50.0
 
 func _ready():
 	marker.visible = false

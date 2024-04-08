@@ -32,18 +32,11 @@ func _on_area_2d_body_entered(body):
 	if "Angler" in body.name:
 		Globals.door_count = 0
 
-
-
-
 func _on_area_2d_2_body_entered(body):
 	if "Angler" in body.name:
 		if Globals.door_count != 0:
 			body.SPEED = 0
-		if Globals.door_count == 0:
-			body.SPEED = 40
- 
-
 
 func _on_area_2d_2_body_exited(body):
 	if "Angler" in body.name:
-		body.SPEED = 40
+		body.SPEED = 500

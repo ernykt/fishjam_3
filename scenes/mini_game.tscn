@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://pj310nefxe7h"]
+[gd_scene load_steps=8 format=3 uid="uid://pj310nefxe7h"]
 
 [ext_resource type="Script" path="res://scripts/MiniGame.gd" id="1_mnx7y"]
 [ext_resource type="Texture2D" uid="uid://d27k3g1j75uql" path="res://sprites/cursor.png" id="2_4gfqk"]
@@ -7,6 +7,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4hvg"]
 size = Vector2(8, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ec40t"]
+size = Vector2(16, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31v3i"]
+size = Vector2(15, 47)
 
 [node name="MiniGame" type="Node2D"]
 script = ExtResource("1_mnx7y")
@@ -44,5 +50,20 @@ theme_override_fonts/font = ExtResource("4_gh7gs")
 wait_time = 5.0
 one_shot = true
 
+[node name="Right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(115, 1)
+shape = SubResource("RectangleShape2D_ec40t")
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2(-113, -4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(-2.5, 5.5)
+shape = SubResource("RectangleShape2D_31v3i")
+
 [connection signal="pressed" from="Shoot" to="." method="_on_shoot_pressed"]
 [connection signal="timeout" from="Disappear" to="." method="_on_disappear_timeout"]
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]

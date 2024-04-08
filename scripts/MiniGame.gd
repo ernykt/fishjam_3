@@ -10,6 +10,7 @@ var pressed = false
 var hit = false
 
 func _ready():
+	cursor.velocity = SPEED * Vector2.RIGHT
 	pos = to_local(cursor.position)
 	$Disappear.start(3)
 
@@ -23,24 +24,28 @@ func _process(_delta):
 		Globals.score -= 10
 		Globals.emit_signal("punishment")
 		self.queue_free()
-	if not pressed:
-		move_cursor()
 	cursor.move_and_slide()
 	
 func _on_shoot_pressed():
 	cursor.velocity = Vector2.ZERO
 	pressed = true
 
-func move_cursor():
-		if to_local(cursor.position).x <= pos.x + 120 and right:
-			cursor.velocity = SPEED * Vector2.RIGHT
-		if int(to_local(cursor.position).x) == int(pos.x + 120):
-			right = false
-		if not right and to_local(cursor.position).x >= pos.x - 120:
-			cursor.velocity = SPEED * Vector2.LEFT
-		if  int(to_local(cursor.position).x) == int(pos.x - 120):
-			right = true
+#func move_cursor():
+		#if to_local(cursor.position).x <= pos.x + 120 and right:
+			#cursor.velocity = SPEED * Vector2.RIGHT
+		#if int(to_local(cursor.position).x) == int(pos.x + 120):
+			#right = false
+		#if not right and to_local(cursor.position).x >= pos.x - 120:
+			#cursor.velocity = SPEED * Vector2.LEFT
+		#if  int(to_local(cursor.position).x) == int(pos.x - 120):
+			#right = true
 			
 func _on_disappear_timeout():
 	self.queue_free()
 	Globals.emit_signal("punishment")
+
+func _on_right_body_entered(_body):
+	cursor.velocity = -cursor.velocity
+
+func _on_left_body_entered(_body):
+	cursor.velocity = -cursor.velocity
