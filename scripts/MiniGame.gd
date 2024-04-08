@@ -16,13 +16,11 @@ func _ready():
 func _process(_delta):
 	if cursor in $ShootMiddle/GoodSpot.get_overlapping_bodies() and pressed:
 		Globals.score += 10
-		print("no punishment")
 		hit = true
 		Globals.emit_signal("success")
 		self.queue_free()
 	if pressed and cursor not in $ShootMiddle/GoodSpot.get_overlapping_bodies():
 		Globals.score -= 10
-		print("punishment")
 		Globals.emit_signal("punishment")
 		self.queue_free()
 	if not pressed:

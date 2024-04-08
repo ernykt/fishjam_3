@@ -12,6 +12,7 @@ func _ready():
 func _process(_delta):
 	score_text.text = "score: " + str(Globals.score)
 	$TimeLabel.text = "Time: " + str(int($TimeRemaining.time_left))
+	
 func start_minigame(pos):
 	var minigame_scene = minigame.instantiate()
 	minigame_scene.position.x = pos.x
@@ -29,4 +30,4 @@ func spawn_boss():
 
 func _on_area_2d_body_entered(body):
 	if "Angler" in body.name:
-		body.queue_free()
+		Globals.door_count = 0

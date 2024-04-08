@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bpu0w1nwpvj"]
+[gd_scene load_steps=23 format=3 uid="uid://bpu0w1nwpvj"]
 
 [ext_resource type="Script" path="res://scripts/angler_fish.gd" id="1_7gqqq"]
 [ext_resource type="Texture2D" uid="uid://dynkimj11d4fm" path="res://sprites/SpearFishing Assets Pack/Sprites/Sea angler - 32x32/SeaAngler.png" id="1_11yph"]
@@ -129,17 +129,30 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uq102"]
+size = Vector2(25.72, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qys5u"]
 size = Vector2(10.3667, 5.05208)
 
 [node name="Angler" type="CharacterBody2D"]
 scale = Vector2(25, 25)
+collision_layer = 65
+collision_mask = 65
 script = ExtResource("1_7gqqq")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yvvwx")
 autoplay = "default"
 frame_progress = 0.714719
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.86, 0)
+shape = SubResource("RectangleShape2D_uq102")
 
 [node name="TopLane" type="CollisionShape2D" parent="."]
 position = Vector2(11.4, 7.76667)

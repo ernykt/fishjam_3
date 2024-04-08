@@ -8,12 +8,12 @@ func _ready():
 	$Sprite2D.flip_h = true
 
 func _physics_process(delta):
-	if position.x > 1100 and not in_position:
-		velocity = Vector2(-1, 0) * SPEED
+	if position.x > 900 and not in_position:
+		velocity = Vector2.LEFT * SPEED
 	if Globals.boss_active:
 		self.queue_free()
 	
-	elif position.x <= 1000 or hungry: 
+	elif position.x <= 500 or hungry: 
 		velocity = Vector2.ZERO
 		hungry = false
 		in_position = true

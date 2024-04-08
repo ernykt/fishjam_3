@@ -28,7 +28,6 @@ func _ready():
 func _process(delta):
 	if chance_to_break == 5:
 		spark_generator()
-		print("broken")
 		chance_to_break = -1
 		own_button.disabled = true
 		is_broken = true
@@ -100,17 +99,16 @@ func _on_fault_timer_timeout():
 func apply_punishment():
 	if is_broken:
 		if Globals.boss_active:
+			Globals.door_count -= 1
 			var tween_mod = get_tree().create_tween()
 			var tween = get_tree().create_tween()
 			tween.tween_property(self, "position", position - Vector2(0, 25), 0.3)
 			tween_mod.tween_property(self, "modulate:a", 0, 0.3)
 			tween_mod.tween_callback(queue_free)
-		print("punishment")
 		own_button.disabled = true
 		$PunishmentTimer.start(3)
 
 func _on_punishment_timer_timeout():
-	print("working")
 	is_broken = false
 	own_button.disabled = false
 	
